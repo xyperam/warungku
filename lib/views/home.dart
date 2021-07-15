@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:warungku/views/Menu.dart';
 import 'package:warungku/views/form.dart';
 import 'package:warungku/models/barang.dart';
 import 'package:warungku/helper/dbhelper.dart';
@@ -25,6 +26,7 @@ class HomeState extends State<Home> {
       appBar: AppBar(
         title: Text('Warungku'),
       ),
+      // body: Menu(),
       body: createListView(),
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.add),
@@ -52,6 +54,7 @@ class HomeState extends State<Home> {
     return ListView.builder(
       itemCount: count,
       itemBuilder: (BuildContext context, int index) {
+// Mebuat Component untuk item Barang dan Stock 
         return Card(
           color: Colors.white,
           elevation: 2.0,
@@ -74,6 +77,7 @@ class HomeState extends State<Home> {
             },
           ),
         );
+// Component END
       },
     );
 

@@ -1,4 +1,6 @@
-import 'views/home.dart';
+import 'package:warungku/views/Menu.dart';
+
+// import 'views/home.dart';
 import 'package:flutter/material.dart';
 import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:lottie/lottie.dart';
@@ -11,7 +13,7 @@ class Splashscreen extends StatelessWidget {
         child: AnimatedSplashScreen(
           splash: LottieBuilder.asset('assets/logistic.json',
               height: 150, width: 150, fit: BoxFit.fitWidth),
-          nextScreen: Home(),
+          nextScreen: Menu(),
           splashTransition: SplashTransition.fadeTransition,
           backgroundColor: Colors.white12,
           // duration: 1800,
