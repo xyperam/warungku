@@ -46,6 +46,7 @@ class HomeState extends State<Home> {
     return result;
   }
 
+// Button To Form
   ListView createListView() {
     TextStyle textStyle = Theme.of(context).textTheme.subhead;
     return ListView.builder(
@@ -101,6 +102,11 @@ class HomeState extends State<Home> {
 // }
   }
 
+// Button To Form END
+
+
+// LOGIC START
+
   //buat barang
   void addBarang(Barang object) async {
     int result = await dbHelper.insert(object);
@@ -138,4 +144,6 @@ class HomeState extends State<Home> {
       });
     });
   }
+
+// LOGIC END
 }
