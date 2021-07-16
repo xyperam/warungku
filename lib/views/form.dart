@@ -65,12 +65,12 @@ class EntryFormState extends State<EntryForm> {
                   },
                 ),
               ),
-              // tombol button
+
               Padding(
                 padding: EdgeInsets.only(top: 20.0, bottom: 20.0),
                 child: Row(
                   children: <Widget>[
-                    // tombol simpan
+                    // button save
                     Expanded(
                       child: RaisedButton(
                         color: Theme.of(context).primaryColorDark,
@@ -87,9 +87,8 @@ class EntryFormState extends State<EntryForm> {
                           } else {
                             // ubah data
                             barang.namaBarang = namaBarangController.text;
-                            barang.namaBarang = stockController.text;
+                            barang.stock = stockController.text;
                           }
-                          // kembali ke layar sebelumnya dengan membawa objek contact
                           Navigator.pop(context, barang);
                         },
                       ),
