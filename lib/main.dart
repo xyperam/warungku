@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'views/home.dart';
+import 'package:warungku/splashscreen.dart';
+// import 'views/home.dart';
 
 void main() => runApp(MyApp());
 
@@ -11,7 +12,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Tambahkan Daftar',
       theme: ThemeData(),
-      home: Home(),
+      home: Splashscreen(),
     );
   }
 }
