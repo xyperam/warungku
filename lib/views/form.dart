@@ -21,11 +21,12 @@ class EntryFormState extends State<EntryForm> {
       namaBarangController.text = barang.namaBarang;
       stockController.text = barang.stock;
     }
-    //rubah
+    //form update
     return Scaffold(
         appBar: AppBar(
-          title: barang == null ? Text('Tambah') : Text('Rubah'),
+          title: barang == null ? Text('Tambah') : Text('Update'),
           leading: Icon(Icons.keyboard_arrow_left),
+          backgroundColor: Color(0xFF4150A8),
         ),
         body: Padding(
           padding: EdgeInsets.only(top: 15.0, left: 10.0, right: 10.0),
@@ -53,7 +54,7 @@ class EntryFormState extends State<EntryForm> {
                 padding: EdgeInsets.only(top: 20.0, bottom: 20.0),
                 child: TextField(
                   controller: stockController,
-                  keyboardType: TextInputType.phone,
+                  keyboardType: TextInputType.number,
                   decoration: InputDecoration(
                     labelText: 'Stock',
                     border: OutlineInputBorder(
@@ -73,7 +74,7 @@ class EntryFormState extends State<EntryForm> {
                     // button save
                     Expanded(
                       child: RaisedButton(
-                        color: Theme.of(context).primaryColorDark,
+                        color: Color(0xFF4150A8),
                         textColor: Theme.of(context).primaryColorLight,
                         child: Text(
                           'Save',
@@ -99,7 +100,7 @@ class EntryFormState extends State<EntryForm> {
                     // tombol batal
                     Expanded(
                       child: RaisedButton(
-                        color: Theme.of(context).primaryColorDark,
+                        color: Colors.red,
                         textColor: Theme.of(context).primaryColorLight,
                         child: Text(
                           'Cancel',

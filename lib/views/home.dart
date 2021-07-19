@@ -17,6 +17,14 @@ class HomeState extends State<Home> {
   DbHelper dbHelper = DbHelper();
   int count = 0;
   List<Barang> listbarang;
+
+  @override
+  initState() {
+    super.initState();
+    // baca Shared Preferences
+    updateListView();
+  }
+
   @override
   Widget build(BuildContext context) {
     if (listbarang == null) {
@@ -24,17 +32,21 @@ class HomeState extends State<Home> {
     }
     return Scaffold(
       appBar: AppBar(
-        title: Text('Warungku'),
+        title: Text('Daftar Sembako'),
+        backgroundColor: Color(0xFF4150A8),
       ),
       // body: Menu(),
       body: createListView(),
       floatingActionButton: FloatingActionButton(
-        child: Icon(Icons.add),
+        child: Icon(
+          Icons.add,
+        ),
         tooltip: 'Tambah Data',
         onPressed: () async {
           var barang = await navigateToEntryForm(context, null);
           if (barang != null) addBarang(barang);
         },
+        backgroundColor: Color(0xFF4150A8),
       ),
     );
   }
@@ -54,7 +66,7 @@ class HomeState extends State<Home> {
     return ListView.builder(
       itemCount: count,
       itemBuilder: (BuildContext context, int index) {
-// Mebuat Component untuk item Barang dan Stock 
+// Mebuat Component untuk item Barang dan Stock
         return Card(
           color: Colors.white,
           elevation: 2.0,
@@ -63,51 +75,29 @@ class HomeState extends State<Home> {
               this.listbarang[index].namaBarang,
               style: textStyle,
             ),
-            subtitle: Text(this.listbarang[index].stock),
+            subtitle: Text('Stock : ' + this.listbarang[index].stock),
             trailing: GestureDetector(
-              child: Icon(Icons.delete),
+              child: Icon(
+                Icons.delete,
+                color: Colors.red,
+              ),
               onTap: () {
                 deleteBarang(listbarang[index]);
               },
             ),
             onTap: () async {
-              var contact =
+              var barang =
                   await navigateToEntryForm(context, this.listbarang[index]);
-              if (contact != null) editBarang(contact);
+              if (barang != null) editBarang(barang);
             },
           ),
         );
 // Component END
       },
     );
-
-// SingleChildScrollView dataTable(List<Barang>listbarang){
-//   return SingleChildScrollView(
-//     scrollDirection: Axis.vertical,
-//     child: DataTable(columns: [
-//       DataColumn(label: Text('Nama Barang')),
-//       DataColumn(label: Text('Stock')),
-//       DataColumn(label: Text('Delete')),
-//     ],
-//     rows: listbarang
-//     .map(
-//       (barang)=>DataRow(cells: [
-//         DataCell(
-//           Text( this.listbarang[index].namaBarang)
-//         ),
-//                DataCell(
-//           Text( this.listbarang[index].stock)
-//         ),
-//       ])
-//     )
-//     ,
-//     ),
-//   )
-// }
   }
 
 // Button To Form END
-
 
 // LOGIC START
 

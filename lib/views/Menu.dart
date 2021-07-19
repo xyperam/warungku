@@ -15,12 +15,22 @@ class Menu extends StatelessWidget {
             Column(
               children: <Widget>[
                 Container(
-                  margin: EdgeInsets.only(
-                      top: 25.0, bottom: 0.0, left: 50.0, right: 50.0),
-                  child: Text(
-                    "WARUNG.KU",
-                    style: TextStyle(fontFamily: 'Varela', fontSize: 15.0),
-                  ),
+                  width: MediaQuery.of(context).size.width,
+                  height: 130,
+                  // margin: EdgeInsets.fromLTRB(0, 0, 0, 0),
+                  padding: EdgeInsets.only(top: 50),
+                  decoration: BoxDecoration(
+                      color: Color(0xFF4150A8), // EDIT COLOR HERE
+                      borderRadius: BorderRadius.only(
+                          bottomLeft: Radius.circular(200),
+                          bottomRight: Radius.circular(200))),
+                  child: Text('WarungKu',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 23,
+                        fontWeight: FontWeight.bold,
+                      )),
                 ),
               ],
             ),
